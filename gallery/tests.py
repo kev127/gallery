@@ -24,8 +24,8 @@ class ImageTestClass(TestCase):
 
     def test_filter_by_location(self):
         test_location_id = 6
-        images_location = Image.filter_by_location(test_location_id) 
-        self.assertTrue(len(image_location) == 0)   
+        image_location = Image.filter_by_location(test_location_id) 
+        self.assertTrue(len(image_location)== 0) 
 
     def test_delete_image(self):
         self.new_image.save_image()
@@ -42,4 +42,17 @@ class LocationTestClass(TestCase):
     def test_save_method(self):
         self.nairobi.save_location()
         locations = Location.objects.all()
-        self.assertTrue(len(locations)>0)    
+        self.assertTrue(len(locations)>0)
+
+class CategoryTestClass(TestCase):
+    def setUp(self):
+        self.cars = Category(name='cars')
+
+    def test_instance(self):
+        self.assertTrue(isinstance(self.cars,Category)) 
+
+    def test_save_method(self):
+        self.cars.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)   
+
