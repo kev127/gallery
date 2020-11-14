@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-class Image(models.model):
+class Image(models.Model):
     image=models.ImageField(upload_to = 'gallery/')
     image_name=models.CharField(max_length =60)
     image_description=models.TextField()
@@ -29,4 +29,20 @@ class Image(models.model):
         image_by_location = cls.objects.filter(image_location_id = id)  
         return image_by_location
 
+class Location(models.Model):
+    name = models.CharField(max_length = 60)
 
+    def __str__(self):
+        return self.name
+
+    def save_location(self):
+        self.save()
+
+class Category(models.Model):
+    name = models.CharField(max_length = 60)
+
+    def __str__(self):
+        return self.name
+
+    def save_category(self):
+        self.save()
