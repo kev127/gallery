@@ -1,6 +1,9 @@
 from django.http  import HttpResponse,Http404
 from django.shortcuts import render,redirect
 from .models import Image,Category
+from django import forms
+from cloudinary.forms import cl_init_js_callbacks      
+from .forms import ImageForm
 
 # Create your views here.
 
@@ -25,3 +28,14 @@ def search_image(request):
     else:
         message = "You haven't searched for any image"
         return render(request, 'all-gallery/search.html',{"message":message})
+
+def upload(request):
+  context = dict( backend_form = PhotoForm())
+
+  if request.method == 'POST':
+    form = PhotoForm(request.POST, request.FILES)
+    context['posted'] = form.instance
+    if form.is_valid():
+        form.save()
+
+  return render(request, 'upload.html', context)
