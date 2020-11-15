@@ -1,0 +1,28 @@
+{%extends 'all-photos/base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<div class="container">
+   {%if gallary%}
+  
+      <h2 style="font-weight: bold; color: rgb(46, 24, 24); font-size: 25px;" >Found {{ gallary|length }} of {{message}} category</h2>
+    {% else %}
+      <h2> No image in Foto Moto category</h2>
+    {% endif %}
+
+    {%if gallary%}
+    <div class="row">
+        {%for gallary in gallery%}
+        <div class="col-md-3">
+            <div class=" ">
+                <img src="{{photo.image.url}}" class="img-responsive" alt="..." style="height: 300px; width: 300px; ">
+
+            </div>
+
+        </div>
+        {%endfor%}
+    </div>
+    {%endif%}
+</div>
+{%endblock%}
