@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Image(models.Model):
@@ -46,3 +47,6 @@ class Category(models.Model):
 
     def save_category(self):
         self.save()
+
+class Photo(models.Model):
+  image = CloudinaryField('image')

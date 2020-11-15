@@ -3,13 +3,11 @@ from django.shortcuts import render,redirect
 from .models import Image,Category
 
 # Create your views here.
-def gallery_today(request):
-    return render(request, 'all-gallery/today-gallery.html')
 
 def gallery(request):
-    images = Image.get_images()
+    image = Image.get_image()
     categories = Category.objects.all()
-    return render(request, 'all-gallery/today-gallery.html',{"images":images,"category":category})
+    return render(request, 'all-gallery/today-gallery.html',{"image":image,"categories":categories})
 
 def gallery_by_category(request, category_id):
     images = Image.filter_by_category(category_id) 
