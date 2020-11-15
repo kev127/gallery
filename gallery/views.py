@@ -30,10 +30,10 @@ def search_image(request):
         return render(request, 'all-gallery/search.html',{"message":message})
 
 def upload(request):
-  context = dict( backend_form = PhotoForm())
+  context = dict( backend_form = ImageForm())
 
   if request.method == 'POST':
-    form = PhotoForm(request.POST, request.FILES)
+    form = ImageForm(request.POST, request.FILES)
     context['posted'] = form.instance
     if form.is_valid():
         form.save()

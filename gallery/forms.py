@@ -6,7 +6,7 @@ class ImageForm(ModelForm):
   class Meta:
       model = Image
       fields = '__all__'
-  image = CloudinaryFileField(
+  gallery = CloudinaryFileField(
         # attrs = { 'style': "margin-top: 30px" }, 
         options = { 
             'tags': "directly_uploaded",
