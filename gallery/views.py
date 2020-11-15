@@ -21,7 +21,7 @@ def search_image(request):
     if 'gallery' in request.GET and request.GET["gallery"]:
         category= request.GET.get("gallery")
         searched_images =Image.search_image(category)
-        message = f"{search_term}"
+        message = f"{search_image}"
 
         return render(request, 'all-gallery/search.html',{"message":message, "gallery":searched_images})
 
