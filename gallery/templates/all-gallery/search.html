@@ -1,4 +1,4 @@
-{%extends 'all-photos/base.html'%}
+{%extends 'all-gallery/base.html'%}
 
 {% block content %}
 {{block.super}}
@@ -6,7 +6,6 @@
 <div class="container">
    {%if gallary%}
   
-      <h2 style="font-weight: bold; color: rgb(46, 24, 24); font-size: 25px;" >Found {{ gallary|length }} of {{message}} category</h2>
     {% else %}
       <h2> No image in Foto Moto category</h2>
     {% endif %}
