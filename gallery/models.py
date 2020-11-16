@@ -5,7 +5,7 @@ import cloudinary
 
 # Create your models here.
 class Image(models.Model):
-    image=models.ImageField(upload_to = 'gallery/')
+    image=CloudinaryField('image')
     image_name=models.CharField(max_length =60)
     image_description=models.TextField()
     image_location=models.ForeignKey('Location',on_delete=models.CASCADE)
@@ -49,4 +49,3 @@ class Category(models.Model):
 
     def save_category(self):
         self.save()
-
