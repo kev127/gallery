@@ -38,4 +38,4 @@ def upload(request):
     if form.is_valid():
         form.save()
 
-  return render(request, 'upload.html', context)
+  return render(request, 'today-gallery.html', context)
