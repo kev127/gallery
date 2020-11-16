@@ -1,7 +1,5 @@
 {%extends 'all-gallery/base.html'%}
 {% block content %} 
-{% load cloudinary %}      
-{% cloudinary photo.image format="jpg" width=300 height=300 crop="fill" %}
 {{ block.super}}
 
 <div class="container" style="margin-top: 2%;">
